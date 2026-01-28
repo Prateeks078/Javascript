@@ -8,5 +8,7 @@ function bringbrush(numberofbrush){
     console.log(`Haanji,lekr aya ${numberofbrush} Brush`);
 }
 
+console.log("Prateek");
+
 printprateek();
 bringbrush(890);
