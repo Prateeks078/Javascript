@@ -137,6 +137,3 @@ console.log(teacollection); // Original Object remains unchanged
 
 // This is the problem of shallow copy where nested objects are still referenced.
 
-
-// Solution to this 
-
