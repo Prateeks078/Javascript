@@ -104,5 +104,6 @@ console.log(z);
 
 // ------------------------------------------------------ Using Polyfill (Homework) ----------------------------------------------------
 
-
+// Map, filter, reduce 
+// js polyfill libraries 
 
