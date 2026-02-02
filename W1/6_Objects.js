@@ -37,7 +37,7 @@ console.log(obj2.getfullname) // It will give undefined because getfullname is n
 
 // --------------------------------------------------------
 obj2.__proto__=obj1; // Now obj2 is inheriting from obj1
-obj1.__proto__=null; // Breaking the prototype chain further
+// obj1.__proto__=null; // Breaking the prototype chain further
 // --------------------------------------------------------
 
 
@@ -86,5 +86,28 @@ const arr=[1,2,3,4,5];
 // Everything just came out from an Object Class 
 
 
+console.log(Person.prototype)// It will give all the properties and methods of Person 
+console.log(Person.prototype);
+console.log(Person.prototype);
+console.log(Person.prototype);
+console.log(Person.prototype);
+console.log(Person.prototype);
 
+
+console.log("-----------------------------------");
+console.log(p1.__proto__); // It will give all the properties and methods of Array class
+console.log(p1.__proto__); // It will give all the properties and methods of Array clas
+console.log(p1.__proto__); // It will give all the properties and methods of Array clas
+console.log(p1.__proto__); // It will give all the properties and methods of Array clas
+console.log(p1.__proto__); // It will give all the properties and methods of Array clas
+
+console.log(p1.__proto__.getfullname); // It will give all the properties and methods of Array clas
+
+// Bhai  sun, whenever i be creating an object of Person class, what u have to do is just copy the 
+// properties of base class Person and just paste it into the object ka __proto__
+// So that object can access all the properties and methods of Person class through prototype chain
+
+
+// we didnt do __proto__ Kuki we do this with the objects not with the classes bro 
+// Toh basically our new keyword is doing this job for us in the background only bro okkie 
 
