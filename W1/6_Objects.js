@@ -188,3 +188,91 @@ arr.map(function(e){
 
 const z=new A();
 console.log(add(2,3));
+
+// ----------------------------------------Syntax Practice---------------------------------------------- 
+
+// Some Practical Problems to be asked in Interviews 
+
+Function.prototype.describe=function(){
+    console.log(`Function name is ${this.name}`);
+}
+
+function masalachai(){}
+function gingerchai(){}
+
+function greet(name){
+    return `Hello, ${name}`;
+}
+
+greet.describe(); // Function name is greet
+masalachai.describe(); // Function name is masalachai
+
+// Studying 
+
+// Functions are objects Not “like objects” — they are real objects, Which means a function can have:
+// properties
+// methods
+// prototype
+// inheritance
+
+// All functions are created from a master blueprint called:
+// 👉 Function
+
+// And all functions inherit from:
+// 👉 Function.prototype
+
+// Like this mental model:
+// greet  --->  Function.prototype  --->  Object.prototype
+
+// So anything you add to Function.prototype becomes available to ALL functions.
+
+// Step 3 — What you did here
+// Function.prototype.describe = function() {
+//     console.log(`Function name is ${this.name}`);
+// }
+
+// You just told JavaScript:
+// “Hey JS, from now on, every function in this program should have a method called describe().”
+// You modified the parent of all functions.
+
+// FINAL MODEL: 
+
+// greet.describe();
+
+// JS does:
+// Look for describe inside greet → not found
+// Go to its prototype → Function.prototype
+// Found describe
+// Call it with this = greet
+
+
+// Jargonic Explanation 
+// greet.describe('Hitesh'); // Isse Argument Bolenge
+// function xyz(name) // Yeh Parameter Bolenge 
+
+// Function Declaration
+function add(a,b){
+    return a+b;
+}
+
+// Function Expression 
+const substract =function(a,b){
+    return a-b;
+}
+
+const multiply=(a,b)=>{a*b};
+
+
+// First Class Functions
+
+// Like Normal Functions
+function op(a,b,operation){
+    return operation(a,b);
+}
+
+const result=op(5,3,add);
+console.log(result);
+
+// First-class functions mean functions can be passed, stored, and returned like normal values. 
+const res=op(5,3,(x,y)=>x*y); 
+console.log(res);
