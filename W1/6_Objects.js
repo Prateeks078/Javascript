@@ -1,14 +1,90 @@
-
-
 // Methods && Functions 
 // Function is basically a stand alone quantity but if that function is defined inside an object then 
 // it is referred to us as a method 
 
-
 // Suppose I have an object Person1 with some properties and I want to make another object Person2 with same properties 
-// So i need to write the same code again and again for each object and there will be for sure chances of bugs 
+// So I need to write the same code again and again for each object and there will be for sure chances of bugs 
 
 // I can't use Deep copy because it is used to copy the values of one object to another object but here
 //  I want to copy the structure of one object to another object or want to copy the keys na bro 
+
+// So, Basically i can use classes 
+
+const obj1={
+    fname:"Prateek",
+    lname:"Sharma",
+    hobby:"Coding",
+
+    getfullname:function(){
+        return `The name is ${this.fname} ${this.lname} and the hobby is ${this.hobby}`;
+    }
+};
+
+const obj2={
+    fname:"John",
+    lname:"Snow",
+    hobby:"Watching TV Series"
+};
+
+console.log(obj1);
+console.log(obj1.getfullname()); // It will give the full name of obj1
+
+console.log(obj2);
+//console.log(obj2.getfullname()); // It will be giving error 
+console.log(obj2.getfullname) // It will give undefined because getfullname is not defined in obj2
+
+// Important Interview Points to consider 
+
+// --------------------------------------------------------
+obj2.__proto__=obj1; // Now obj2 is inheriting from obj1
+obj1.__proto__=null; // Breaking the prototype chain further
+// --------------------------------------------------------
+
+
+// Prototype Inheritance Concept I learnt 
+
+console.log("HI");
+console.log(obj2.getfullname()); // It will give the full name of obj1
+console.log(obj2.toString()); // It will be giving an error because we broke the chaining bro 
+
+
+// Basically these 2 are having different addresses, ek m change krenge toh it wont affect the other
+// ---------------------------------------------------------------------------------------------------------------
+
+class Person{
+    constructor(fname,lname){
+        this.fname=fname;
+        this.lname=lname;
+    }
+
+    getfullname(){
+        return `${this.fname} ${this.lname}`;
+    }
+};
+
+const p1=new Person("Prateek","Sharma");
+const p2=new Person("John","Snow");
+
+console.log(p1.getfullname());
+console.log(p2.getfullname());
+
+
+// If I am not creating any constructor then also it will be working because Js will be automatically creating
+// a default constructor for us if we do not create a constructor that will be called as a default constructor 
+
+// Parameterized Constructor -> A constructor which takes parameters is called parameterized constructor which we used above 
+
+// --------------------------------------------------------------------------------------------------
+// Why everything in Js is an Object ?  {Question of Great Minds}
+
+const arr=[1,2,3,4,5];
+// arr.__proto__ gives all the properties and methods of Array class because arr is inheriting from Array.prototype
+// arr.__proto__.__proto__ gives all the properties and methods of Object class because Array.prototype is inheriting from Object.prototype
+
+// Earth bani hogi kissi ek atom se right ? 
+// Similarly Js me sab kuch object isliye hai kyunki sab kuch ek base object se bana hai
+// Everything just came out from an Object Class 
+
+
 
 
