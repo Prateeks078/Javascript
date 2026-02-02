@@ -109,5 +109,61 @@ console.log(p1.__proto__.getfullname); // It will give all the properties and me
 
 
 // we didnt do __proto__ Kuki we do this with the objects not with the classes bro 
-// Toh basically our new keyword is doing this job for us in the background only bro okkie 
+// Toh basically our new keyword is doing this job for us in the background only bro okkie and calling it as Syntactic Sugar 
+
+class A{
+    funcinsideA(){
+        console.log("Function inside A");
+    }
+};
+
+class B{
+    funcinsideB(){
+        console.log("Function inside B");
+    }
+};
+
+const baccha1=new A(); // baccha is an object of class A
+const baccha2=new B(); // baccha2 is an object of class B
+
+baccha1.funcinsideA();
+baccha2.funcinsideB();
+
+
+// Let us say I want to use funcinsideA() methos inside class B 
+// I can literally paste the code but I do not want to mitigate the DRY Prinicple bro 
+
+// Method 1: Using __proto__ 
+// CASE 1:
+// bachha2.__proto__=baccha1; 
+// baccha2.funcinsideA(); // This will not work
+
+// Reason : 
+// baccha2 ❌
+// baccha1 ❌ (physically empty)
+// A.prototype ✅ (but JS doesn't jump based on borrowing)
+
+// CASE 2: 
+baccha2.__proto__=A.prototype;
+baccha2.funcinsideA(); // It will work now bro
+
+// CASE 3:
+// // B.prototype=A.prototype;
+// baccha2.funcinsideA(); // It will NOT BE working
+
+// REASON: 
+// You did reference copy, not prototype linking.
+// This means:
+// B loses its own prototype
+// Both classes now share the same prototype object
+// This is aliasing, not inheritance.
+
+
+// Alias Method to make it work 
+
+class C extends B{
+}
+
+const baccha3=new C();
+baccha3.funcinsideB(); // It will work
 
