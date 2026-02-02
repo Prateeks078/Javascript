@@ -167,3 +167,24 @@ class C extends B{
 const baccha3=new C();
 baccha3.funcinsideB(); // It will work
 
+// ----------------------------------------Syntax Practice---------------------------------------------- 
+
+function x(){
+    return "Hello World";
+}
+
+var x= function(){
+    return "Hello World, this is Prateek Sharma";
+}
+
+var add=(a,b)=>{return a+b;}
+var add=(a,b)=>a+b;
+
+
+arr.map((e)=>e*2);
+arr.map(function(e){
+    return e*2;
+})
+
+const z=new A();
+console.log(add(2,3));
