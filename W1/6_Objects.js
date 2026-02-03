@@ -276,3 +276,47 @@ console.log(result);
 // First-class functions mean functions can be passed, stored, and returned like normal values. 
 const res=op(5,3,(x,y)=>x*y); 
 console.log(res);
+
+
+
+// ---------------------------------------------------------------------------------- 
+console.log("------------------------------------------")
+
+// Tiffin Concept: 
+
+// createCounter ek function hai jo function return krrha hai...lekin uss function ke andar ek variable hai count jo ki
+// closure ke through uss inner function ke andar access ho pa rha hai
+
+// So, har baar jab bhi hum counter() ko call krenge toh count ki value 1 se increment ho jaayegi aur return ho jaayegi
+function createCounter(){
+    let count=0;
+    return function(){
+        count++;
+        return count;
+    }
+}
+
+const counter=createCounter();
+counter();
+counter();
+counter();
+counter();
+counter();
+counter();
+
+// Oh, this inner function still needs count… I will keep it alive in memory. 
+// count is now privately attached to counter. 
+
+console.log(counter());
+
+
+// ------------------------------------------------------------------------------------
+
+(function(){
+    console.log("Console log Executed");
+})()
+
+// JS creates the function
+// Immediately calls it
+
+
