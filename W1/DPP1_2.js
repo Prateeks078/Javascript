@@ -77,3 +77,4 @@ console.log(arr.length);
 // Solution is 
 // Because JS arrays behaves as Objects not fixed sized arrays, that is why the holes are being created bro..... 
 
+

@@ -18,6 +18,8 @@ Object.prototype.chai = function () {
 
 arr.chai(); // This will work because arr inherits from Object.prototype through prototype chain
 
+// Everything in JS is object → so everything ends at Object.prototype. 
+
 // ---------------------------------------------------- Polyfills ----------------------------------------------------
 
 // Polyfills are the methods which are not present in the current environment but we can create them manually
