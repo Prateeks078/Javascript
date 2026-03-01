@@ -7,6 +7,7 @@
 // These Lines will remain defualt in every case ok 
 
 import mongoose from "mongoose"; 
+import bcrypt from "bcryptjs"; 
 
 const userSchema=new mongoose.Schema({
     name:String,
@@ -35,9 +36,19 @@ const userSchema=new mongoose.Schema({
 });  
 // It is a constructor function that creates a new schema object.
 
+// Understanding of Prehooks and PostHooks
+userSchema.pre("save", async function(next){
+    if(this.isModified("password")){
+        this.password=await(bcrypt.hash(this.password,10));
+    }
+    next();
+})
+
 const Users=mongoose.model("Users", userSchema); 
 // It is a method that creates a new model based on the schema and the collection name. 
 // The first argument is the name of the collection in the database and the second argument is the schema object.
+     
+
 
 export default Users;
 // It is a method that exports the model so that it can be used in other files.

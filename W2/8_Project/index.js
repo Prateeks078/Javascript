@@ -34,7 +34,6 @@ app.use(express.json())  // to parse the JSON data from the request body
 app.use(express.urlencoded({extended:true})) // to parse the URL-encoded data from the request body
 
 
-
 // 1st route-- Route and Call-Back are there
 app.get('/', (req, res) => {
   res.send('Chai Chahiye h chahiye !')
@@ -61,7 +60,6 @@ res.send("Hi, this is prateek Sharma")
 // Connect to DB 
 db();
 
-
 app.use("/api/v1/users/",userRoutes); // to use the user routes, 
 // now whenever I will hit this route then it will go to the user routes 
 // and then it will go to the controller 
@@ -72,3 +70,4 @@ console.log(process.env.PORT);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
